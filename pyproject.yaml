@@ -1,0 +1,40 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "image-steganography"
+version = "0.1.0"
+description = "Hide and reveal text in images via LSB steganography with a Tkinter GUI"
+readme = "README.md"
+authors = [{ name = "Mobin Yousefi", email = "" }]
+license = { text = "MIT" }
+requires-python = ">=3.9"
+dependencies = [
+  "stegano>=0.11.3",
+  "Pillow>=10.0.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/mobinyousefi"
+Repository = "https://github.com/mobinyousefi"
+
+[project.scripts]
+stegano-gui = "image_steganography.main:main"
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8",
+  "ruff>=0.6",
+  "black>=24.0",
+]
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.ruff]
+line-length = 100
+select = ["E", "F", "I", "UP"]
